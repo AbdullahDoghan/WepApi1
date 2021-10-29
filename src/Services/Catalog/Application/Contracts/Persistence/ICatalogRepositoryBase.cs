@@ -9,9 +9,9 @@ namespace Application.Contracts.Persistence
 {
     public interface ICatalogRepositoryBase<T> where T:CatalogEntity
     {
-        Task<IEnumerable<T>> GetProducts();
+        Task<IReadOnlyList<T>> GetProducts();
         Task<T> GetProduct(int id);
-        Task<IEnumerable<T>> GetProductByName(string name);
+        Task<IEnumerable<CatalogEntity>> GetProductByName(string name);
         Task<T> AddAsync(T entity);
         Task UpdateAsync(T entity);
         Task DeleteAsync(T entity);
